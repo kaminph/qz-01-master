@@ -5,7 +5,7 @@ exercise.hello = function(){
     //   QUESTION 01
     //   Return a string that says "Hello!"
     // ----------------------------------------
-    return 'Error: Question 01 not implemented';
+    return 'Hello!';
 };
 
 exercise.numberArray = function(){
@@ -13,7 +13,7 @@ exercise.numberArray = function(){
     //   QUESTION 02
     //   Return an array of numbers
     // ----------------------------------------
-    return 'Error: Question 02 not implemented';
+    return [1,2,3,4,5,6];
 };
 
 exercise.nameAndAge = function(){
@@ -22,7 +22,7 @@ exercise.nameAndAge = function(){
     //   Return an object with
     //   a 'name' and 'age' property
     // ----------------------------------------
-    return 'Error: Question 03 not implemented';
+    return {name:'Kamin', age:'27'};
 };
 
 exercise.objectArray = function(){
@@ -31,7 +31,7 @@ exercise.objectArray = function(){
     //   Return an array of empty objects
     //   The array can have any length you like.
     // ----------------------------------------
-    return 'Error: Question 04 not implemented';
+    return [{},{}];
 };
 
 exercise.addProperty = function(someObject){
@@ -40,7 +40,10 @@ exercise.addProperty = function(someObject){
     //   Add the property 'name' to someObject
     //   Give 'name' any value you like.
     // ----------------------------------------
-    return 'Error: Question 05 not implemented';
+    someObject.name = 'Kamin'
+
+
+    return someObject;
 };
 
 exercise.thirdElement = function(someArray){
@@ -48,7 +51,7 @@ exercise.thirdElement = function(someArray){
     //   QUESTION 06
     //   Return the third element of array
     // ----------------------------------------
-    return 'Error: Question 06 not implemented';
+    return someArray[3];
 };
 
 exercise.concatenate = function(string1, string2, string3){
@@ -57,7 +60,10 @@ exercise.concatenate = function(string1, string2, string3){
     //   Return the concatenation of
     //   string1, string2, string3
     // ----------------------------------------
-    return 'Error: Question 07 not implemented';
+
+    var concatedString = string1 + string2 + string3
+
+    return concatedString;
 };
 
 exercise.greaterThanSix = function(someNumbers){
@@ -66,7 +72,12 @@ exercise.greaterThanSix = function(someNumbers){
     //   Filter array for values greater than 6
     //   Return the filtered array
     // ----------------------------------------
-    return 'Error: Question 08 not implemented';
+
+    var filtered = someNumbers.filter(function(element){
+        return element > 6;
+    })
+
+    return filtered;
 };
 
 exercise.getNames = function(people){
@@ -86,7 +97,12 @@ exercise.getNames = function(people){
     //   You should return
     //     ['peter','bruce','clark','diana']
     // ----------------------------------------
-    return 'Error: Question 09 not implemented';
+
+    var mapped = people.map(function(value,i){
+        return value.name;
+    })
+
+    return mapped;
 };
 
 exercise.getSalaryTotal = function(people){
@@ -106,7 +122,12 @@ exercise.getSalaryTotal = function(people){
     //   you should return
     //     10000
     // ----------------------------------------
-    return 'Error: Question 10 not implemented';
+
+    var reduced = people.reduce(function(previous,current,i){
+        return previous + current.salary;
+    }, 0);
+
+    return reduced;
 };
 
 exercise.sortNumbers = function(someNumbers){
@@ -116,7 +137,8 @@ exercise.sortNumbers = function(someNumbers){
     //   return the sorted array
     //   Ascending or descenging.
     // ----------------------------------------
-    return 'Error: Question 11 not implemented';
+
+    return someNumbers.sort();
 };
 
 exercise.executeCallback = function(callback){
@@ -124,7 +146,7 @@ exercise.executeCallback = function(callback){
     //   QUESTION 12
     //   Execute callback
     // ----------------------------------------
-    return 'Error: Question 12 not implemented';
+    callback();
 };
 
 exercise.getPersonAndJob = function(payroll){
@@ -133,7 +155,21 @@ exercise.getPersonAndJob = function(payroll){
     //   Return an array of people and jobs
     //  [['person', 'job'], ['person,job'];
     // ----------------------------------------
-    return 'Error: Question 13 not implemented';
+
+    // var payroll = [
+    //     [1, 'abby hall', 'city manager ', '98538', '02132'],
+    //     [2, 'dana bell', 'police chief ', '83942', '02136'],
+    //     [3, 'cora cook', 'city attorney', '98538', '02132'],
+    //     [4, 'judy king', 'fire director', '70073', '02090']
+    //    ];
+
+    var peopleNJobs = [];
+    payroll.forEach(function(item){
+        peopleNJobs.push([item[1],item[2]]);
+    })
+
+
+    return peopleNJobs;
 };
 
 exercise.getTotalPayroll = function(payroll){
@@ -142,7 +178,12 @@ exercise.getTotalPayroll = function(payroll){
     //   Return the total payroll
     //   as an integer, use reduce
     // ----------------------------------------
-    return 'Error: Question 14 not implemented';
+
+    var totalPayroll = payroll.reduce(function(previous,current){
+        return parseInt(previous) + parseInt(current[3]);
+    },0);
+
+    return totalPayroll;
 };
 
 exercise.getEarningsAbove = function(payroll,target){
@@ -151,7 +192,11 @@ exercise.getEarningsAbove = function(payroll,target){
     //   Return the number of people with
     //   earnings above target
     // ----------------------------------------
-    return 'Error: Question 15 not implemented';
+    var filtered = payroll.filter(function(value){
+        return parseInt(value[3]) > target;
+    })
+
+    return filtered;
 };
 
 exercise.getNumberOfZipCodesWith = function(payroll,num){
@@ -160,7 +205,16 @@ exercise.getNumberOfZipCodesWith = function(payroll,num){
     //   Return the number of zip codes
     //   with 'num' anywhere in them
     // ----------------------------------------
-    return 'Error: Question 16 not implemented';
+
+    // var num = '3';
+    var numOfZips = 0;
+
+    for(i = 0; i < payroll.length; i++){
+        if(payroll[i][4].indexOf(num) >= 0){
+            numOfZips += 1;
+        }
+    }
+    return numOfZips;
 };
 
 
