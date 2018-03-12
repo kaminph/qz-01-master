@@ -1,1 +1,2 @@
-# qz-01-master
+# quiz-01-prof
+Quiz 01
